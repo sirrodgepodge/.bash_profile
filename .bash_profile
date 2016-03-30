@@ -65,12 +65,14 @@
     export GIT_MERGE_AUTOEDIT='no'
 
     # Editors
-    # Tells your shell that when a program requires various editors, use sublime.
-    # The -w flag tells your shell to wait until sublime exits
-    export VISUAL="subl -w"
-    export SVN_EDITOR="subl -w"
-    export GIT_EDITOR="subl -w"
-    export EDITOR="subl -w"
+    # Tells your shell that when a program requires various editors, use DEFAULT_EDITOR var.
+    # The -w flag tells your shell to wait until atom exits'
+    export DEFAULT_EDITOR=atom;
+
+    export VISUAL="$DEFAULT_EDITOR -w"
+    export SVN_EDITOR="$DEFAULT_EDITOR -w"
+    export GIT_EDITOR="$DEFAULT_EDITOR -w"
+    export EDITOR="$DEFAULT_EDITOR -w"
 
   # Paths
 
@@ -97,9 +99,29 @@
     # Read http://blog.seldomatt.com/blog/2012/10/08/bash-and-the-one-true-path/ for more on that.
     export PATH="$USR_PATHS:$PATH"
 
+  # Application configs
+
     # NVM set up to deal with prefixes
     export NVM_DIR=~/.nvm
     source $(brew --prefix nvm)/nvm.sh
+
+    # Chrome
+    alias atskill="atsutil server -shutdown && sleep 5 && atsutil server -ping"
+    alias chrome="atskill && open -a \"Google Chrome\""
+
+    # Get current IP address
+    alias ip="curl icanhazip.com"
+
+  # File system
+
+  # edit bash profile
+  alias bp="$EDITOR ~/.bash_profile"
+
+  # edit key bindings
+  alias kb="$EDITOR ~/Library/KeyBindings/DefaultKeyBinding.dict"
+
+  # reload bash profile config
+  alias rbp="source ~/.bash_profile"
 
   alias ll='ls -lah -GF'
   # alias for going back a directory
@@ -129,18 +151,24 @@
 
 
   # Git
+  alias gitar="git ls-files -d -m -o -z --exclude-standard | xargs -0 git update-index --add --remove" # handles git add step
   alias gitst="git status"
-  alias gst="git status"
-  alias gcl="git clone"
-  alias gl="git pull"
+  alias gitcl="git clone"
+  alias gpd="git push origin develop"
+  alias gpm="git push origin master"
+  alias gmd="git merge origin develop"
+  alias gmm="git merge origin master"
+  alias gpl="git pull"
   alias gp="git push"
-  alias gd="git diff | subl"
+  alias gd="git diff | atom"
   alias gc="git commit -v"
   alias gca="git commit -v -a"
   alias gb="git branch"
   alias gba="git branch -a"
   alias gcam="git commit -am"
   alias gbb="git branch -b"
+  alias gitroot="while [ ! -d .git ]; do cd ..; done" # get root of current git repo
+  alias ungit="find . -name '.git' -exec rm -rf {} \;" # remove git from project
 
 # Functions
 # =====================
@@ -197,6 +225,27 @@
   # Delete local branch
   dellocal () {
     git branch -D "$@"
+  }
+
+  #extract from any compressed file type
+  extract () {
+    if [ -f $1 ] ; then
+    case $1 in
+    *.tar.bz2)tar xjf $1;;
+    *.tar.gz)tar xzf $1;;
+    *.bz2)bunzip2 $1;;
+    *.rar)rar x $1;;
+    *.gz)gunzip $1;;
+    *.tar)tar xf $1;;
+    *.tbz2)tar xjf $1;;
+    *.tgz)tar xzf $1;;
+    *.zip)unzip $1;;
+    *.Z)uncompress $1;;
+    *)echo "'$1' cannot be extracted via extract()" ;;
+    esac
+    else
+    echo "'$1' is not a valid file"
+    fi
   }
 
 # Case-Insensitive Auto Completion
