@@ -52,8 +52,6 @@
 
     export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-    source $(brew --prefix nvm)/nvm.sh
-
     # Those NODE & Python Paths won't break anything even if you
     # don't have NODE or Python installed. Eventually you will and
     # then you don't have to update your bash_profile
@@ -108,9 +106,9 @@
     # Chrome
     alias atskill="atsutil server -shutdown && sleep 5 && atsutil server -ping"
     alias chrome="atskill && open -a \"Google Chrome\""
-
-    # Get current IP address
-    alias ip="curl icanhazip.com"
+    
+    # Postgres
+    alias pg="postgres -D /usr/local/var/postgres"
 
   # File system
 
