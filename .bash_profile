@@ -1,3 +1,8 @@
+export BASH_SILENCE_DEPRECATION_WARNING=1 # kill warning for using bash
+if [ -n "$ZSH_VERSION" ]; then
+   chsh -s /bin/bash
+fi
+
 # Configuring Our Prompt
 # ======================
 
