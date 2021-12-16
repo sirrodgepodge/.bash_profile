@@ -113,7 +113,7 @@ fi
     alias chrome="atskill && open -a \"Google Chrome\""
     
     # Postgres
-    alias pg="postgres -D /usr/local/var/postgres"
+    alias pg="postgres -D /opt/homebrew/bin/postgres" 
 
   # File system
 
