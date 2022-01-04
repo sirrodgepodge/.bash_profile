@@ -101,6 +101,7 @@ fi
     # it will try to find that command within a directory that is defined in our PATH.
     # Read http://blog.seldomatt.com/blog/2012/10/08/bash-and-the-one-true-path/ for more on that.
     export PATH="$USR_PATHS:$PATH"
+    export PATH="/usr/local/bin:$PATH"
 
   # Application configs
 
