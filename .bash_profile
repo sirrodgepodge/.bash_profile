@@ -33,7 +33,7 @@ export NVM_DIR="$HOME/.nvm"
     # Define some local colors
     local         RED="\[\033[0;31m\]" # This syntax is some weird bash color thing I never
     local   LIGHT_RED="\[\033[1;31m\]" # really understood
-    local        CHAR="♥"
+    local        CHAR="®"
     local   BLUE="\[\e[0;49;34m\]"
 
     # ♥ ☆ - Keeping some cool ASCII Characters for reference
@@ -444,7 +444,7 @@ source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.
 eval "ssh-add --apple-use-keychain ~/.ssh/id_rsa"
 eval "ssh-add --apple-use-keychain ~/.ssh/id_rsa_2"
 # Set PATH, MANPATH, etc., for Homebrew.
-# eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Disable bracketed paste mode
 set enable-bracketed-paste off
