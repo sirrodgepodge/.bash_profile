@@ -39,7 +39,7 @@ export NVM_DIR="$HOME/.nvm"
     # ♥ ☆ - Keeping some cool ASCII Characters for reference
 
     # Here is where we actually export the PS1 Variable which stores the text for your prompt
-    export PS1="\[\e[32m\]\w\[\e[0m\]$RED\$(parse_git_branch) \n\[\e[0;31m\]$BLUE$RED$CHAR \[\e[0m\]"
+    export PS1="\[\e[32m\]\w\[\e[0m\]$RED\$(parse_git_branch) \n\[\e[0;31m\]$BLUE$CHAR \[\e[0m\]"
       PS2='> '
       PS4='+ '
     }
@@ -250,8 +250,8 @@ function extract () {
   alias gbb="git branch -b"
 
   # Claude
-  alias claude="/Users/rbeaman/.local/bin/claude --dangerously-skip-permissions --continue"
-  alias claudecode="/Users/rbeaman/.local/bin/claude"
+  alias claude="claude --dangerously-skip-permissions --continue"
+  alias claudecode="claude"
 
 # Functions
 # =====================
