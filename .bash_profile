@@ -250,8 +250,8 @@ function extract () {
   alias gbb="git branch -b"
 
   # Claude
-  alias claude="claude --dangerously-skip-permissions --continue"
-  alias claudecode="claude"
+  alias claudecode="command claude"
+  alias claude="command claude --dangerously-skip-permissions --continue"
 
 # Functions
 # =====================
